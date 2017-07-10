@@ -12,3 +12,12 @@
 #main li {
     list-style: none;
 }
+
+table {
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 5px;
+}
