@@ -1,12 +1,17 @@
+.nav {
+    padding-top: 10px;
+}
 .nav li a {
     font-size: 14px;
     font-weight: bold;
     padding: 14px 10px;
+    margin-top: 5px;
 }
 
 .nav li {
     list-style: none;
     display: inline;
+    
 }
 
 #main li {
