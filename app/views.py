@@ -26,9 +26,13 @@ def log_in():
         return render_template('login.html')
 @app.route('/logout', methods=['GET', 'POST'])
 def log_out():
-    plan.logout_user(session['name'])
-    session.pop('name', None)
-    return redirect(url_for('log_in'))
+    if 'name' in session:
+        plan.logout_user(session['name'])
+        session.pop('name', None)
+        return redirect(url_for('log_in'))
+    else:
+        return redirect(url_for('log_in'))
+
 
 @app.route('/createuser', methods = [ 'GET','POST'])
 def create_user():
@@ -37,6 +41,18 @@ def create_user():
         return redirect(url_for('index'))
     else:
         return render_template('newuser.html')
+
+@app.route('/create_bucketlist', methods = ['Get','POST'])
+def create_bucketlist():
+    if 'name' in session:
+        if request.method == 'POST':
+            plan.users[session['name']].create_bucketlist(request.form['name'], request.form['description'])
+            return redirect(url_for('index'))
+        else:
+            return render_template('newbucketlist.html')
+    else:
+        return redirect(url_for('log_in'))
+
         
     
     

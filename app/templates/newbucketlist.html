@@ -4,7 +4,7 @@
 <div class="nav">
     <div class="container">
         <ul class="pull-right">
-            <li><a>Home</a></li>
+            <li><a href='/'>Home</a></li>
             <li><a>Dashboard</a></li>
             <li><a href='/logout'>Log out</a></li>
         </ul>
@@ -17,12 +17,12 @@
     <p>New Bucketlist </p>
     <form action = "" method ="POST">
         <div Class="form-group"> 
-            <label for = "username">Username : </label>
+            <label for = "name">Name : </label>
             <input Class="form-control" type = "text" name = "name">
         </div>
         <div Class="form-group">
-            <label for = "password">Description : </label>
-            <input Class ="form-control" type = "text area" name = "description">
+            <label for = "description">Description : </label>
+            <textarea Class ="form-control"  name = "description" row ="3"></textarea>
         </div>
         <button type = "submit" Class="btn btn-primary pull-right">Save</button>
     </form>
