@@ -2,13 +2,19 @@ from .user import User
 class Planner:
     """The planner class contains methods to interact with all the other classes"""
 
+    loged_in = []
+
     def __init__(self):
         self.users = {}
 
     def create_user(self, firstname, lastname, username, userpass, email):
         """A method to create a new user"""
-        new_user = User(firstname, lastname, username, userpass, email)
-        self.users.update({new_user.username:new_user})
+        if self.user_exists(username):
+            return 'Fail'
+        else:
+            new_user = User(firstname, lastname, username, userpass, email)
+            self.users.update({new_user.username:new_user})
+            return 'Success'
 
     def delete_user(self, username):
         """A method to delete an existing user"""
@@ -16,7 +22,8 @@ class Planner:
 
     def login_user(self, username, userpass):
         """A method to login a user with username and password"""
-        if username in self.users and self.users[username].password == userpass:
+        if self.user_exists(username) and self.users[username].password == userpass:
+            Planner.loged_in.append(self.users[username].username)
             return True
         else:
             return False
@@ -25,3 +32,7 @@ class Planner:
         """A method to logout a user with given username"""
         pass
     
+    def user_exists(self, username):
+        """method checks if the user already exists basing on username"""
+        return username in self.users
+        
