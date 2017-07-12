@@ -26,8 +26,8 @@ def log_in():
         return render_template('login.html')
 @app.route('/logout', methods=['GET', 'POST'])
 def log_out():
-    plan.logout_user(session['username'])
-    session.pop('username', None)
+    plan.logout_user(session['name'])
+    session.pop('name', None)
     return redirect(url_for('log_in'))
 
 @app.route('/createuser', methods = [ 'GET','POST'])
