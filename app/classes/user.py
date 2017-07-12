@@ -20,7 +20,7 @@ class User:
 
     def view_bucketlists(self):
         """method returns all the bucketlists for the current user"""
-        pass 
+        return self.bucketlists 
 
     def view_bucketlist_activities(self, bucketlist_name):
         """method returns a list of activities in a given bucket_list for the current user"""
