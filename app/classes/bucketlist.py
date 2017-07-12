@@ -1,9 +1,11 @@
 class BucketList:
     """A class for creating and managing bucketlist objects"""
 
-    def __init__(self):
+    def __init__(self,name, description):
         """class constructor"""
-        pass
+        self.name = name
+        self.description = description
+        self.activities = []
 
     def add_activity(self, activity):
         """method to add an activity to the bucketlist"""

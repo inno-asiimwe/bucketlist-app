@@ -13,7 +13,7 @@ class TestUser(unittest.TestCase):
         count_before = len(myuser.bucketlists)
         myuser.create_bucketlist('Before 50', 'My goals to be attained before am 50 years old')
         count_after = len(myuser.bucketlists)
-        self.assertGreater(count_after, count_before, msg='count_after should equal count_before + 1')
+        self.assertEqual(count_after, count_before + 1, msg='count_after should equal count_before + 1')
 
     def test_create_bucketlist_name_exists(self):
         """Testing create_bucketlist with a name that already exists"""

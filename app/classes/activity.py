@@ -1,6 +1,6 @@
 class Activity:
     """"Class creates activity objects """
 
-    def __init__(self):
+    def __init__(self, name, description):
         pass
 
