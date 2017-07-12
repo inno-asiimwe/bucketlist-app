@@ -30,7 +30,7 @@ class Planner:
 
     def logout_user(self, username):
         """A method to logout a user with given username"""
-        pass
+        
     
     def user_exists(self, username):
         """method checks if the user already exists basing on username"""
