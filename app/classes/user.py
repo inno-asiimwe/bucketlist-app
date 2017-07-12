@@ -2,7 +2,11 @@ from .bucketlist import BucketList
 class User:
     """Creates the user object and has methods for creating and viewing bucketlists and activities"""
 
-    def __init__(self):
+    def __init__(self, firstname, lastname, username,password, email):
+        self.firstname = firstname
+        self.lastname = lastname
+        self.username = username
+        self.password = password
         self.bucketlists = []
 
     def create_bucketlist(self, name, description):

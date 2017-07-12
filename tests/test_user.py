@@ -19,12 +19,12 @@ class TestUser(unittest.TestCase):
         """Testing create_bucketlist with a name that already exists"""
         myuser = User()
         myuser.create_bucketlist('Before 50', 'Things I have to purchase before I am 50')
-        self.assertFalse(myuser.create_bucketlist('Before  50', 'description'), msg="Duplicate names are not allowed")
+        self.assertEqual(myuser.create_bucketlist('Before 50', 'description'),"Name already exists", msg="Duplicate names are not allowed")
 
     def test_create_bucketlist_non_string_input(self):
         """Method should raise a type error for non string inputs"""
         myuser = User()
-        self.assertRaises( TypeError,myuser.create_bucketlist, 'Before 50', 50, msg="Method only accept string inputs")
+        self.assertRaises(TypeError,myuser.create_bucketlist, 'Before 50', 50, msg="Method only accept string inputs")
 
   
 

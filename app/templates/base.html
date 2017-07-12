@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>{% block title%}{%endblock%</title>
-<link href="{{ url_for('static', filename='bootstrap.css') }}" rel ="stylesheet">
-<link href = "{{ url_for('static', filename='style.css') }}" rel ="stylesheet">
+<title>{% block title %}{% endblock %}</title>
+<link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel ="stylesheet">
+<link href = "{{ url_for('static', filename='css/style.css') }}" rel ="stylesheet">
 </head>
 <body>
-<div class="nav">
-    <div class="container">
-        <ul class="pull-right">
-            <li><a>Home</a></li>
-            <li><a>Dashboard</a></li>
-            <li><a>Log out</a></li>
-        </ul>
-    </div>
-</div>
+{% block nav %}{% endblock %}
 <div class="container">
-   {% block body%}{%endblock%}
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4" id="main">
+            {% block body %}{% endblock %}
+        </div>
+        <div Class="col-sm-4"></div>
+    </div>
 </div>
 </body>
 </html>
