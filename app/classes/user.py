@@ -2,7 +2,7 @@ class User:
     """Creates the user object and has methods for creating and viewing bucketlists and activities"""
 
     def __init__(self):
-        self.bucketlist = []
+        self.bucketlists = []
 
     def create_bucketlist(self, name, description):
         """method creates a new bucketlist for current user with the given name and description"""

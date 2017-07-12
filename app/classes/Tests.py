@@ -1,2 +1,0 @@
-from bucketlist import BucketList
-
