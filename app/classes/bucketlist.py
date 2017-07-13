@@ -1,4 +1,4 @@
-"""Module for th Bucketlist class """
+"""Module for the Bucketlist class """
 class BucketList:
     """A class for creating and managing bucketlist objects"""
 
@@ -17,5 +17,18 @@ class BucketList:
 
     def remove_activity(self, activity_name):
         """method to remove an activity of a given name from the bucketlist"""
-        pass
+        activity = self.object_from_name(activity_name)
+        if activity in self.activities:
+            self.activities.remove(activity)
+            return 'Success'
+        return 'Activity does not exist'
+
+    def object_from_name(self, name):
+        """Returns an activity object"""
+        for activity in self.activities:
+            if activity.name == name:
+                return activity
+
+
+
     

@@ -43,3 +43,6 @@ class TestBucketList(unittest.TestCase):
         """remove_activity should Raise a typeerror if passed a non string"""
         self.assertRaises(TypeError, self.mybucketlist.remove_activity,
                           57, msg="Activity name should be a string")
+
+if __name__ == '__main__':
+    unittest.main()
