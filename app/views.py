@@ -83,7 +83,7 @@ def create_activity(bucketlist_id):
             PLAN.users[session['name']].create_activity(bucketlist,
                                                         request.form['name'],
                                                         request.form['description'])
-            return redirect(url_for('view_bucketlists'))
+            return redirect(url_for('view_activities', bucketlist_id=bucketlist_id))
         return render_template('newactivity.html')
     return redirect(url_for('log_in'))
 
@@ -95,5 +95,6 @@ def view_activities(bucketlist_id):
         activities = PLAN.users[session['name']].view_bucketlist_activities(bucketlist)
         return render_template('activities.html',
                                activities=activities,
-                               bucketlist=bucketlist)
+                               bucketlist=bucketlist,
+                               bucketlist_id=bucketlist_id)
     return redirect(url_for('log_in'))
