@@ -1,4 +1,4 @@
-from app import app, render_template, request, session, url_for, redirect,flash
+from app import app, render_template, request, session, url_for, redirect, flash
 from app.classes.planner import Planner
 
 plan = Planner()
@@ -58,6 +58,17 @@ def view_bucketlists():
     if 'name' in session:
         bucket = plan.users[session['name']].view_bucketlists()
         return render_template('bucketlists.html', bucket = bucket)
+    else:
+        return redirect(url_for('log_in'))
+
+@app.route('/bucketlists/<bucketlist_id>/delete')
+def delete_bucketlist(bucketlist_id):
+    if 'name' in session:
+        name = plan.get_name_from_id(bucketlist_id)
+        plan.users[session['name']].delete_bucketlist(name)
+        return redirect(url_for('view_bucketlists'))
+         
+         
     else:
         return redirect(url_for('log_in'))
 

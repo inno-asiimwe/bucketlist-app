@@ -7,6 +7,7 @@ class User:
         self.lastname = lastname
         self.username = username
         self.password = password
+        self.email = email
         self.bucketlists = []
 
     def create_bucketlist(self, name, description):
@@ -25,5 +26,25 @@ class User:
     def view_bucketlist_activities(self, bucketlist_name):
         """method returns a list of activities in a given bucket_list for the current user"""
         pass
+
+    def delete_bucketlist(self, bucketlist_name):
+        """Method deletes a bucketlist"""
+        if isinstance(bucketlist_name, str):
+            bucketlist = self.get_object_from_name(bucketlist_name, self.bucketlists)
+            self.bucketlists.remove(bucketlist)
+        else:
+            raise TypeError('Given Name not a string')
+    
+    def get_object_from_name(self, item_name, container):
+        """searches a list of objects by name returns the object if name found """
+        for item in container:
+            if item.name == item_name:
+                return item
+
+        
+
+        
+        
+            
 
     

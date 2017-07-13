@@ -1,8 +1,11 @@
 class BucketList:
     """A class for creating and managing bucketlist objects"""
 
+    bucketlist_id = 0
+
     def __init__(self,name, description):
         """class constructor"""
+        self.bucketlist_id = str(BucketList.bucketlist_id + 1)
         self.name = name
         self.description = description
         self.activities = []

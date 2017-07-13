@@ -28,6 +28,7 @@
             <thead>
                 <tr>
                     <th>Name</th>
+                    <th>Description</th>
                     <th></th>
                     <th></th>
                     <th></th>
@@ -37,9 +38,10 @@
                 {% for item in bucket %}
                 <tr>
                     <td>{{ item.name}}</td>
-                    <td><button>Open</button></td>
-                    <td><button>Edit</button></td>
-                    <td><button>Delete</button></td>
+                    <td>{{ item.description}}
+                    <td><button class="btn"><a>Open<a></button></td>
+                    <td><button class="btn"><a>Edit<a></button></td>
+                    <td><a href={{'/bucketlists/'+item.bucketlist_id+'/delete' }}><button class="btn">Delete</button></a></td>
                 </tr>
                 {% endfor %}
                 
