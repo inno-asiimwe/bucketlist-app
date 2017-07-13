@@ -1,9 +1,10 @@
+"""Module for th Bucketlist class """
 class BucketList:
     """A class for creating and managing bucketlist objects"""
 
     bucketlist_id = 0
 
-    def __init__(self,name, description):
+    def __init__(self, name, description):
         """class constructor"""
         self.bucketlist_id = str(BucketList.bucketlist_id + 1)
         self.name = name
@@ -17,7 +18,4 @@ class BucketList:
     def remove_activity(self, activity_name):
         """method to remove an activity of a given name from the bucketlist"""
         pass
-
-        
-
     

@@ -1,3 +1,4 @@
+"""The Planner class handles all methods partaining to the user object """
 from .user import User
 class Planner:
     """The planner class contains methods to interact with all the other classes"""
@@ -11,10 +12,9 @@ class Planner:
         """A method to create a new user"""
         if self.user_exists(username):
             return 'Fail'
-        else:
-            new_user = User(firstname, lastname, username, userpass, email)
-            self.users.update({new_user.username:new_user})
-            return 'Success'
+        new_user = User(firstname, lastname, username, userpass, email)
+        self.users.update({new_user.username:new_user})
+        return 'Success'
 
     def delete_user(self, username):
         """A method to delete an existing user"""
@@ -25,13 +25,11 @@ class Planner:
         if self.user_exists(username) and self.users[username].password == userpass:
             Planner.loged_in.append(self.users[username].username)
             return True
-        else:
-            return False
+        return False
 
     def logout_user(self, username):
         """A method to logout a user with given username"""
         Planner.loged_in.remove(username)
-    
     def user_exists(self, username):
         """method checks if the user already exists basing on username"""
         return username in self.users
@@ -48,4 +46,3 @@ class Planner:
                     found = False
         if  not found:
             return False
-        
