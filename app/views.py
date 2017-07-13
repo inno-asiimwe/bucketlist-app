@@ -47,7 +47,7 @@ def create_bucketlist():
     if 'name' in session:
         if request.method == 'POST':
             plan.users[session['name']].create_bucketlist(request.form['name'], request.form['description'])
-            return redirect(url_for('index'))
+            return redirect(url_for('view_bucketlists'))
         else:
             return render_template('newbucketlist.html')
     else:
@@ -69,6 +69,28 @@ def delete_bucketlist(bucketlist_id):
         return redirect(url_for('view_bucketlists'))
          
          
+    else:
+        return redirect(url_for('log_in'))
+
+@app.route('/create_activity/<bucketlist_id>', methods=['GET','POST'])
+def create_activity(bucketlist_id):
+    if 'name' in session:
+        bucketlist = plan.get_name_from_id(bucketlist_id)
+        if request.method == 'POST':
+            plan.users[session['name']].create_activity(bucketlist,request.form['name'], request.form['description']) 
+            return redirect(url_for('view_bucketlists'))
+        else:
+            return render_template('newactivity.html')
+            
+    else:
+        return redirect(url_for('log_in'))
+
+@app.route('/bucketlists/<bucketlist_id>', methods=['GET','POST'])
+def view_acticitivies(bucketlist_id):
+    if 'name' in session:
+        bucketlist = plan.get_name_from_id(bucketlist_id)
+        activities = plan.users[session['name']].view_bucketlist_activities(bucketlist)
+        return render_template('activities.html', activities = activities, bucketlist = bucketlist)
     else:
         return redirect(url_for('log_in'))
 

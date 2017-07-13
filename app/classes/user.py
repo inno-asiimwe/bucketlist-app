@@ -1,4 +1,6 @@
 from .bucketlist import BucketList
+from .activity import Activity
+
 class User:
     """Creates the user object and has methods for creating and viewing bucketlists and activities"""
 
@@ -15,9 +17,17 @@ class User:
         self.bucketlists.append(BucketList(name,description))
         
 
-    def create_activity(self, bucketlist_name, activity_name, activity_status):
-        """method creates a new activity with activity_name and activity_status in bucketlist of provided name"""
-        pass 
+    def create_activity(self, bucketlist_name, activity_name, description):
+        """method creates a new activity with activity_name and description in bucketlist of provided name"""
+        new_activity = Activity(activity_name, description)
+        for bucketlist in self.bucketlists:
+            if bucketlist.name == bucketlist_name:
+                found = True
+                bucketlist.add_activity(new_activity)
+            
+        if not found :
+            bucketlist = self.create_bucketlist(bucketlist_name, '')
+            bucketlist.add_activity(new_activity)
 
     def view_bucketlists(self):
         """method returns all the bucketlists for the current user"""
@@ -25,7 +35,13 @@ class User:
 
     def view_bucketlist_activities(self, bucketlist_name):
         """method returns a list of activities in a given bucket_list for the current user"""
-        pass
+        found = False
+        for bucketlist in self.bucketlists:
+            if bucketlist.name == bucketlist_name:
+                found = True
+                return bucketlist.activities
+        
+        
 
     def delete_bucketlist(self, bucketlist_name):
         """Method deletes a bucketlist"""

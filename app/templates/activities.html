@@ -23,7 +23,7 @@
     </div>
 <div class="jumbotron">
     <div class="container">
-        <h3>Bucket lists</h3>
+        <h3>{{ bucketlist }}</h3>
         <table class="table-stripped table-hover">
             <thead>
                 <tr>
@@ -31,23 +31,21 @@
                     <th>Description</th>
                     <th></th>
                     <th></th>
-                    <th></th>
                 </tr>
             </thead>
             <tbody>
-                {% for item in bucket %}
+                {% for activity in activities %}
                 <tr>
-                    <td>{{ item.name}}</td>
-                    <td>{{ item.description}}</td>
-                    <td><a href={{'/bucketlists/'+item.bucketlist_id }}><button class="btn">Open</button></a></td>
+                    <td>{{ activity.name}}</td>
+                    <td>{{ activity.description}}<td>
                     <td><button class="btn"><a>Edit<a></button></td>
-                    <td><a href={{'/bucketlists/'+item.bucketlist_id+'/delete' }}><button class="btn">Delete</button></a></td>
+                    <td><a href=""><button class="btn">Delete</button></a></td>
                 </tr>
                 {% endfor %}
                 
             </tbody>
         </table>
-        <a href ="/create_bucketlist"><button type='button' class="btn pull-right">New Bucketlist</button></a>
+        <a href =""><button type='button' class="btn pull-right">New Activity</button></a>
     </div>
 </div>
 {% endblock %}
