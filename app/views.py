@@ -53,6 +53,16 @@ def create_bucketlist():
     else:
         return redirect(url_for('log_in'))
 
+@app.route('/bucketlists')
+def view_bucketlists():
+    if 'name' in session:
+        bucket = plan.users[session['name']].view_bucketlists()
+        return render_template('bucketlists.html', bucket = bucket)
+    else:
+        return redirect(url_for('log_in'))
+
+
+
         
     
     
