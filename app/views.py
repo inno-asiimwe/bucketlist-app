@@ -37,7 +37,8 @@ def log_out():
 @app.route('/createuser', methods = [ 'GET','POST'])
 def create_user():
     if request.method == 'POST':
-        plan.create_user(request.form['fname'], request.form['lname'], request.form['username'], request.form['password'], request.form['email'])
+        plan.create_user(request.form['fname'], request.form['lname'],
+         request.form['username'], request.form['password'], request.form['email'])
         return redirect(url_for('index'))
     else:
         return render_template('newuser.html')
@@ -86,7 +87,7 @@ def create_activity(bucketlist_id):
         return redirect(url_for('log_in'))
 
 @app.route('/bucketlists/<bucketlist_id>', methods=['GET','POST'])
-def view_acticitivies(bucketlist_id):
+def view_activities(bucketlist_id):
     if 'name' in session:
         bucketlist = plan.get_name_from_id(bucketlist_id)
         activities = plan.users[session['name']].view_bucketlist_activities(bucketlist)

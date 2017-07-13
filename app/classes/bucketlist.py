@@ -12,10 +12,12 @@ class BucketList:
 
     def add_activity(self, activity):
         """method to add an activity to the bucketlist"""
-        pass
+        self.activities.append(activity)
 
     def remove_activity(self, activity_name):
         """method to remove an activity of a given name from the bucketlist"""
         pass
+
+        
 
     
