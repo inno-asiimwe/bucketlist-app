@@ -98,3 +98,10 @@ def view_activities(bucketlist_id):
                                bucketlist=bucketlist,
                                bucketlist_id=bucketlist_id)
     return redirect(url_for('log_in'))
+@app.route('/bucketlists/<bucketlist_id>/<activity_id>/delete')
+def delete_activity(bucketlist_id, activity_id):
+    """View for deleting an activity"""
+    if 'name' in session:
+        PLAN.users[session['name']].delete_activity(bucketlist_id, activity_id)
+        return redirect(url_for('view_activities', bucketlist_id=bucketlist_id))
+    return redirect(url_for('log_in'))

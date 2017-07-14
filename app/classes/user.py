@@ -43,6 +43,14 @@ class User:
             self.bucketlists.remove(bucketlist)
         else:
             raise TypeError('Given Name not a string')
+
+    def delete_activity(self, bucketlist_id, activity_id):
+        """Method deletes activity from bucketlist """
+        
+        for bucketlist in self.bucketlists:
+            if bucketlist.bucketlist_id == bucketlist_id:
+                bucketlist.remove_activity(activity_id)
+
     def get_object_from_name(self, item_name, container):
         """searches a list of objects by name returns the object if name found """
         for item in container:
