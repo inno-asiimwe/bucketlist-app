@@ -13,11 +13,16 @@
 
 {% endblock %}
 {% block body %}
- <h1>Dream Tracker</h1>
-    <p>Welcome to dream Tracker, We wish you all the best in achieving your dreams.</p>
+<div class="jumbotron">
+ <h2>Dream Tracker</h2>
+    <p>Track your dreams and ambitions</p>
         <ul>
-            <li><a href="/create_bucketlist">Create New Bucketlist</a></li>
-            <li><a href="/bucketlists">View your Bucketlists</a></li>
-            <li><a href="#">Edit Profile</a></li>
+            <li><a href="/create_bucketlist"><button class="btn btn-sm">Create Bucketlist</button></a></li>
+            <p></p>
+            <li><a href="/bucketlists"><button class="btn btn-sm">View Bucketlists</button></a></li>
+            <p></p>
+            <li><a href="#"><button class="btn btn-sm"> Edit your Profile </button></a></li>
+           
         </ul>
+</div>
 {% endblock %}
