@@ -29,10 +29,9 @@ class TestBucketList(unittest.TestCase):
 
     def test_remove_activity_success(self):
         """Test whether activity is removed"""
-        newactivity = Activity('Purchase car', 'I should buy a car by 20')
-        self.mybucketlist.add_activity(newactivity)
-        self.mybucketlist.remove_activity('2')
-        self.assertNotIn(newactivity, self.mybucketlist.activities)
+        self.mybucketlist.add_activity(self.myactivity)
+        self.mybucketlist.remove_activity('1')
+        self.assertNotIn(self.mybucketlist, self.mybucketlist.activities)
 
     def test_remove_activity_non_existant(self):
         """Test with an activity that does not exist"""
