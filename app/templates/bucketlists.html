@@ -1,0 +1,53 @@
+{% extends "base2.html" %}
+
+{% block nav %}
+<div class="nav">
+    <div class="container">
+        <ul class="pull-right">
+            <li><a href = '/'>Home</a></li>
+            <li><a>Dashboard</a></li>
+            <li><a href='/logout'>Log out</a></li>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}
+{% block body %}
+ <div class="container">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4" id="main">
+            <h1>Dream Tracker</h1>
+        </div>
+        <div Class="col-sm-4"></div>
+    </div>
+<div class="jumbotron">
+    <div class="container">
+        <h3>Bucket lists</h3>
+        <table class="table-stripped table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in bucket %}
+                <tr>
+                    <td>{{ item.name}}</td>
+                    <td>{{ item.description}}</td>
+                    <td><a href={{'/bucketlists/'+item.bucketlist_id }}><button class="btn">Open</button></a></td>
+                    <td><button class="btn"><a>Edit<a></button></td>
+                    <td><a href={{'/bucketlists/'+item.bucketlist_id+'/delete' }}><button class="btn">Delete</button></a></td>
+                </tr>
+                {% endfor %}
+                
+            </tbody>
+        </table>
+        <a href ="/create_bucketlist"><button type='button' class="btn pull-right">New Bucketlist</button></a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+ <h1>Dream Tracker</h1>
+    <p>Keep Track of your ambitions and dreams </p>
+    <form action = "" method ="POST">
+        <div Class="form-group"> 
+            <label for = "username">Username : </label>
+            <input Class="form-control" type = "text" name = "username">
+        </div>
+        <div Class="form-group">
+            <label for = "password">Password : </label>
+            <input Class ="form-control" type = "password" name = "password">
+        </div>
+        <button type = "submit" Class="btn btn-primary pull-right">Log in</button>
+    </form>
+    <p></p>
+    <p> <a href="/createuser">Create Account</a></p>
+{% endblock %}

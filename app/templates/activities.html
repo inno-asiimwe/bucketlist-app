@@ -1,0 +1,52 @@
+{% extends "base2.html" %}
+
+{% block nav %}
+<div class="nav">
+    <div class="container">
+        <ul class="pull-right">
+            <li><a href = '/'>Home</a></li>
+            <li><a>Dashboard</a></li>
+            <li><a href='/logout'>Log out</a></li>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}
+{% block body %}
+ <div class="container">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4" id="main">
+            <h1>Dream Tracker</h1>
+        </div>
+        <div Class="col-sm-4"></div>
+    </div>
+<div class="jumbotron">
+    <div class="container">
+        <h3>{{ bucketlist }}</h3>
+        <table class="table-stripped table-hover">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Activity Name</th>
+                    <th>Description</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for activity in activities %}
+                <tr><td>{{activity.activity_id}}</td>
+                    <td>{{ activity.name}}</td>
+                    <td>{{ activity.description}}<td>
+                    <td><button class="btn"><a>Edit<a></button></td>
+                    <td><a href={{'/bucketlists/'+bucketlist_id+'/'+activity.activity_id+'/delete' }}><button class="btn">Delete</button></a></td>
+                </tr>
+                {% endfor %}
+                
+            </tbody>
+        </table>
+        <a href ={{'/create_activity/'+bucketlist_id}}><button type='button' class="btn pull-right">New Activity</button></a>
+    </div>
+</div>
+{% endblock %}

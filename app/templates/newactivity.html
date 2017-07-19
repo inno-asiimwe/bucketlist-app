@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block nav %}
+<div class="nav">
+    <div class="container">
+        <ul class="pull-right">
+            <li><a href='/'>Home</a></li>
+            <li><a>Dashboard</a></li>
+            <li><a href='/logout'>Log out</a></li>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}
+{% block body %}
+ <h1>Dream Tracker</h1>
+    <p>New Activity </p>
+    <form action = "" method ="POST">
+        <div Class="form-group"> 
+            <label for = "name">Name : </label>
+            <input Class="form-control" type = "text" name = "name">
+        </div>
+        <div Class="form-group">
+            <label for = "description">Description : </label>
+            <textarea Class ="form-control"  name = "description" row ="3"></textarea>
+        </div>
+        
+        
+        <button type = "submit" Class="btn btn-primary pull-right">Save</button>
+    </form>
+    <p></p>
+{% endblock %}
