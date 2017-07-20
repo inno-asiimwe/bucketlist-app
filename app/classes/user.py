@@ -41,8 +41,10 @@ class User:
         if isinstance(bucketlist_name, str):
             bucketlist = self.get_object_from_name(bucketlist_name, self.bucketlists)
             self.bucketlists.remove(bucketlist)
-        else:
-            raise TypeError('Given Name not a string')
+        raise TypeError('Given Name not a string')
+
+    def update_bucketlist(bucketlist_id, new_name, new_description):
+        pass
 
     def delete_activity(self, bucketlist_id, activity_id):
         """Method deletes activity from bucketlist """

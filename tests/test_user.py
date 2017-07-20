@@ -35,5 +35,18 @@ class TestUser(unittest.TestCase):
         bucketslists = self.myuser.view_bucketlists()
         self.assertIsInstance(bucketslists, list)
 
+    def test_update_bucketlist_success(self):
+        """Tests whether the attributes of the bucketlist are updated"""
+        self.myuser.create_bucketlist('Before 50', 'Things to do')
+        self.myuser.update_bucketlist('1', 'Before 50', 'Things to do before 50')
+        self.assertEqual(self.myuser.bucketlists[0].description, 'Things to do before 50')
+
+    def test_update_bucketlist_invalid(self):
+        """Non existant bucketlist should return 'Invalid' """
+        self.myuser.create_bucketlist('Before 50', 'Things to do')
+        update = self.myuser.update_bucketlist('2', 'Before 50', 'Things to do before 50')
+        self.assertEqual(update, 'invalid')
+
+
 if __name__ == '__main__':
     unittest.main()
