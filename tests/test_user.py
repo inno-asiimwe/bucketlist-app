@@ -38,7 +38,9 @@ class TestUser(unittest.TestCase):
     def test_update_bucketlist_success(self):
         """Tests whether the attributes of the bucketlist are updated"""
         self.myuser.create_bucketlist('Before 50', 'Things to do')
-        self.myuser.update_bucketlist(self.myuser.bucketlists[0].bucketlist_id, 'Before 50', 'Things to do before 50')
+        self.myuser.update_bucketlist(self.myuser.bucketlists[0].bucketlist_id,
+                                      'Before 50',
+                                      'Things to do before 50')
         self.assertEqual(self.myuser.bucketlists[0].description, 'Things to do before 50')
 
     def test_update_bucketlist_invalid(self):
@@ -46,6 +48,26 @@ class TestUser(unittest.TestCase):
         self.myuser.create_bucketlist('Before 50', 'Things to do')
         update = self.myuser.update_bucketlist('2', 'Before 50', 'Things to do before 50')
         self.assertEqual(update, 'invalid')
+
+    def test_update_activity_success(self):
+        """Tests whether the attributes of the activity are updates"""
+        self.myuser.create_bucketlist('Before 50', 'Things to do')
+        self.myuser.create_activity('Before 50', 'Build', 'I should build house')
+        self.myuser.update_activity(self.myuser.bucketlists[0].bucketlist_id,
+                                    self.myuser.bucketlists[0].activities[0].activity_id,
+                                    'Build a house',
+                                    'I should build a house')
+        self.assertEqual(self.myuser.bucketlists[0].activities[0].name, 'Build a house')
+
+    def test_update_activity_invalid(self):
+        """Non existant bucketlist should return 'invalid' """
+        self.myuser.create_bucketlist('Before 50', 'Things to do')
+        update = self.myuser.update_activity(self.myuser.bucketlists[0].bucketlist_id,
+                                            '12',
+                                            'Build a house',
+                                            'I must build a house')
+        self.assertEqual(update, 'invalid')
+
 
 
 if __name__ == '__main__':

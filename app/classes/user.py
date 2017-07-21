@@ -53,6 +53,10 @@ class User:
         else:
             return 'invalid'
 
+    def update_activity(self, bucketlist_id, activity_id, new_name, new_descriptions):
+        """Method updates the attributes of the activity"""
+        pass
+
     def delete_activity(self, bucketlist_id, activity_id):
         """Method deletes activity from bucketlist """
         for bucketlist in self.bucketlists:
