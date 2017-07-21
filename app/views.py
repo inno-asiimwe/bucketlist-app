@@ -108,4 +108,10 @@ def delete_activity(bucketlist_id, activity_id):
 @app.route('/bucketlists/<bucketlist_id>/update', methods=['GET', 'POST'])
 def update_bucketlist(bucketlist_id):
     """View for updating bucketlist"""
-    pass
+    if 'name' in session:
+        if request.method == 'POST':
+            PLAN.users[session['name']].update_bucketlist(bucketlist_id,
+                                                          request.form['name'],
+                                                          request.form['description'])
+            return redirect(url_for('view_bucketlists'))
+    return redirect(url_for('log_in'))
