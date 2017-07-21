@@ -42,7 +42,6 @@ class Planner:
                 if bucketlist.bucketlist_id == bucketlist_id:
                     found = True
                     return bucketlist.name
-                else:
-                    found = False
+                found = False
         if  not found:
             return False

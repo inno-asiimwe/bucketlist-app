@@ -43,12 +43,15 @@ class User:
             self.bucketlists.remove(bucketlist)
         raise TypeError('Given Name not a string')
 
-    def update_bucketlist(bucketlist_id, new_name, new_description):
-        pass
+    def update_bucketlist(self, bucketlist_id, new_name, new_description):
+        """Method updates the attributes of the bucketlist"""
+        for bucketlist in self.bucketlists:
+            if bucketlist.bucketlist_id == bucketlist_id:
+                bucketlist.name = new_name
+                bucketlist.description = new_description
 
     def delete_activity(self, bucketlist_id, activity_id):
         """Method deletes activity from bucketlist """
-        
         for bucketlist in self.bucketlists:
             if bucketlist.bucketlist_id == bucketlist_id:
                 bucketlist.remove_activity(activity_id)

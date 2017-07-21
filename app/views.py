@@ -105,3 +105,7 @@ def delete_activity(bucketlist_id, activity_id):
         PLAN.users[session['name']].delete_activity(bucketlist_id, activity_id)
         return redirect(url_for('view_activities', bucketlist_id=bucketlist_id))
     return redirect(url_for('log_in'))
+@app.route('/bucketlists/<bucketlist_id>/update', methods=['GET', 'POST'])
+def update_bucketlist(bucketlist_id):
+    """View for updating bucketlist"""
+    pass
