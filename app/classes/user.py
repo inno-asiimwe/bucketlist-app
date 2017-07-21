@@ -45,10 +45,13 @@ class User:
 
     def update_bucketlist(self, bucketlist_id, new_name, new_description):
         """Method updates the attributes of the bucketlist"""
-        for bucketlist in self.bucketlists:
-            if bucketlist.bucketlist_id == bucketlist_id:
-                bucketlist.name = new_name
-                bucketlist.description = new_description
+        if self.get_bucketlist_from_id(bucketlist_id) in self.bucketlists:
+            for bucketlist in self.bucketlists:
+                if bucketlist.bucketlist_id == bucketlist_id:
+                    bucketlist.name = new_name
+                    bucketlist.description = new_description
+        else:
+            return 'invalid'
 
     def delete_activity(self, bucketlist_id, activity_id):
         """Method deletes activity from bucketlist """
@@ -61,3 +64,8 @@ class User:
         for item in container:
             if item.name == item_name:
                 return item
+    def get_bucketlist_from_id(self, bucketlist_id):
+        """searches a list of objects by id, returns the object if id is found"""
+        for bucketlist in self.bucketlists:
+            if bucketlist.bucketlist_id == bucketlist_id:
+                return bucketlist
