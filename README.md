@@ -7,11 +7,11 @@ A web App to help a user to keep Track of Dreams and Ambitions in life
 * Flask 0.12.2
 ## Features implemented
 * User can login and out
-* User can add and delete bucketlist
+* User can add, update and delete bucketlist
 * User can add activities to bucketlist
 * User can delete activities
 ## Features not yet implemented
-* Update user, aactivities and bucketlists
+* Update user and activities
 ## How to install
 * Use requirements.txt to install dependencies
 * At the console run run.py

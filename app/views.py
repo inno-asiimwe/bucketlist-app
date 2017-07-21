@@ -114,4 +114,8 @@ def update_bucketlist(bucketlist_id):
                                                           request.form['name'],
                                                           request.form['description'])
             return redirect(url_for('view_bucketlists'))
+        bucketlist = PLAN.users[session['name']].get_bucketlist_from_id(bucketlist_id)
+        return render_template('updatebucketlist.html',
+                                bucketlist=bucketlist)
     return redirect(url_for('log_in'))
+

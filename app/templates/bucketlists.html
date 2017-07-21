@@ -40,7 +40,7 @@
                     <td>{{ item.name}}</td>
                     <td>{{ item.description}}</td>
                     <td><a href={{'/bucketlists/'+item.bucketlist_id }}><button class="btn">Open</button></a></td>
-                    <td><button class="btn"><a>Edit<a></button></td>
+                    <td><a href={{'/bucketlists/'+item.bucketlist_id+'/update' }}><button class="btn">Edit</button></a></td>
                     <td><a href={{'/bucketlists/'+item.bucketlist_id+'/delete' }}><button class="btn">Delete</button></a></td>
                 </tr>
                 {% endfor %}
