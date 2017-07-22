@@ -10,8 +10,9 @@ A web App to help a user to keep Track of Dreams and Ambitions in life
 * User can add, update and delete bucketlist
 * User can add activities to bucketlist
 * User can delete activities
+* User can update activities
 ## Features not yet implemented
-* Update user and activities
+* Update user
 ## How to install
 * Use requirements.txt to install dependencies
 * At the console run run.py
