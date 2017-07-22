@@ -116,6 +116,19 @@ def update_bucketlist(bucketlist_id):
             return redirect(url_for('view_bucketlists'))
         bucketlist = PLAN.users[session['name']].get_bucketlist_from_id(bucketlist_id)
         return render_template('updatebucketlist.html',
-                                bucketlist=bucketlist)
+                               bucketlist=bucketlist)
     return redirect(url_for('log_in'))
+@app.route('/bucketlists/<bucketlist_id>/<activity_id>/update', methods=['GET', 'POST'])
+def update_activity(bucketlist_id, activity_id):
+    """View for updating activity"""
+    if 'name' in session:
+        if request.method == 'POST':
+            PLAN.users[session['name']].update_activity(bucketlist_id,
+                                                        activity_id,
+                                                        request.form['name'],
+                                                        request.form['description'])
+            return redirect(url_for('view_activities', bucketlist_id=bucketlist_id))
+        activity = PLAN.users[session['name']].get_bucketlist_from_id(bucketlist_id).object_from_id(activity_id)
+        return render_template('updateactivity.html', activity=activity)
 
+    return redirect(url_for('log_in'))

@@ -39,7 +39,7 @@
                 <tr><td>{{activity.activity_id}}</td>
                     <td>{{ activity.name}}</td>
                     <td>{{ activity.description}}<td>
-                    <td><button class="btn"><a>Edit<a></button></td>
+                    <td><a href={{'/bucketlists/'+bucketlist_id+'/'+activity.activity_id+'/update' }}><button class="btn">Edit</button></a></td>
                     <td><a href={{'/bucketlists/'+bucketlist_id+'/'+activity.activity_id+'/delete' }}><button class="btn">Delete</button></a></td>
                 </tr>
                 {% endfor %}
