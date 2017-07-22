@@ -53,9 +53,20 @@ class User:
         else:
             return 'invalid'
 
-    def update_activity(self, bucketlist_id, activity_id, new_name, new_descriptions):
+    def update_activity(self, bucketlist_id, activity_id, new_name, new_description):
         """Method updates the attributes of the activity"""
-        pass
+        found = False
+        if self.get_bucketlist_from_id(bucketlist_id) in self.bucketlists:
+            for bucketlist in self.bucketlists:
+                if bucketlist.bucketlist_id == bucketlist_id:
+                    for activity in bucketlist.activities:
+                        if activity.activity_id == activity_id:
+                            activity.name = new_name
+                            activity.description = new_description
+                            found = True
+                    if not found:
+                        return 'invalid'
+        return 'invalid'
 
     def delete_activity(self, bucketlist_id, activity_id):
         """Method deletes activity from bucketlist """

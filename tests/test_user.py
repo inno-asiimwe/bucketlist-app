@@ -63,9 +63,9 @@ class TestUser(unittest.TestCase):
         """Non existant bucketlist should return 'invalid' """
         self.myuser.create_bucketlist('Before 50', 'Things to do')
         update = self.myuser.update_activity(self.myuser.bucketlists[0].bucketlist_id,
-                                            '12',
-                                            'Build a house',
-                                            'I must build a house')
+                                             '12',
+                                             'Build a house',
+                                             'I must build a house')
         self.assertEqual(update, 'invalid')
 
 
