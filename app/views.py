@@ -38,11 +38,15 @@ def log_out():
 def create_user():
     """View handles creating a new User"""
     if request.method == 'POST':
-        PLAN.create_user(request.form['fname'],
-                         request.form['lname'],
-                         request.form['username'],
-                         request.form['password'],
-                         request.form['email'])
+        created = PLAN.create_user(request.form['fname'],
+                                   request.form['lname'],
+                                   request.form['username'],
+                                   request.form['password'],
+                                   request.form['email'])
+        if created == 'Fail':
+            flash ("User name already taken")
+            return render_template('newuser.html')
+        flash("User created successfully!!")
         return redirect(url_for('index'))
     return render_template('newuser.html')
 
