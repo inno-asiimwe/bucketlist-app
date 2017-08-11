@@ -34,9 +34,14 @@ class Planner:
         """method checks if the user already exists basing on username"""
         return username in self.users
     def update_user(self, username, new_firstname, new_lastname, new_password, new_email):
-        """A method to update the profile of a user """
-        pass
-
+        """A method to update the profile of a user, returns update user or 'user not found"""
+        if username not in self.users:
+            return 'user not found'
+        self.users[username].firstname = new_firstname
+        self.users[username].lastname = new_lastname
+        self.users[username].password = new_password
+        self.users[username].email = new_email
+        return self.users[username]
     def get_name_from_id(self, bucketlist_id):
         """Methods takes a bucketlist id and returns its name"""
         found = False
