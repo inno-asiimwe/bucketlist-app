@@ -33,7 +33,9 @@ class Planner:
     def user_exists(self, username):
         """method checks if the user already exists basing on username"""
         return username in self.users
-    def update_user(self, userid, )
+    def update_user(self, userid):
+        """"""
+        pass
 
     def get_name_from_id(self, bucketlist_id):
         """Methods takes a bucketlist id and returns its name"""
