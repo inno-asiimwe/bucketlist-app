@@ -1,5 +1,5 @@
 
-[![Build Status](https://travis-ci.org/inno-asiimwe/bucketlist-app.svg?branch=master)](https://travis-ci.org/inno-asiimwe/bucketlist-app)
+[![Build Status](https://travis-ci.org/inno-asiimwe/bucketlist-app.svg?branch=feature/challenge1)](https://travis-ci.org/inno-asiimwe/bucketlist-app)
 # bucketlist-app
 A web App to help a user to keep Track of Dreams and Ambitions in life
 ## Technologies used 
