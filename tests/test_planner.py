@@ -36,5 +36,17 @@ class TestPlanner(unittest.TestCase):
         online_after = len(Planner.loged_in)
         self.assertEqual(online_after, online_before + 1)
 
+    def test_update_user_success(self):
+        """Test a user is successfully updated"""
+        self.plan.update_user('jane', 'Jennifer', 'Basemera', '123', 'jane@outlook.com' )
+        self.assertEqual([self.plan.users['jane'].firstname, 
+                          self.plan.users['jane'].lastname ],
+                          ['Jennifer', 'Basemera'])
+
+    def test_update_nonexistant(self):
+        """If the user does not exist method returns an error message"""
+        update = self.plan.update_user('inno', 'Innocent', 'Asiimwe', '123', 'asiimwe@outlook.com')
+        self.assertEqual(update, 'user not found')
+
 if __name__ == '__main__':
     unittest.main()

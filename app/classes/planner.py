@@ -33,8 +33,8 @@ class Planner:
     def user_exists(self, username):
         """method checks if the user already exists basing on username"""
         return username in self.users
-    def update_user(self, userid):
-        """"""
+    def update_user(self, username, new_firstname, new_lastname, new_password, new_email):
+        """A method to update the profile of a user """
         pass
 
     def get_name_from_id(self, bucketlist_id):
