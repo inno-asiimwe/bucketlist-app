@@ -18,7 +18,9 @@ class Planner:
 
     def delete_user(self, username):
         """A method to delete an existing user"""
-        pass
+        if username not in self.users:
+            return 'user not found'
+        del self.users[username]
 
     def login_user(self, username, userpass):
         """A method to login a user with username and password"""
