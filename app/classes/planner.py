@@ -31,7 +31,8 @@ class Planner:
 
     def logout_user(self, username):
         """A method to logout a user with given username"""
-        Planner.loged_in.remove(username)
+        while username in Planner.loged_in:
+            Planner.loged_in.remove(username)
     def user_exists(self, username):
         """method checks if the user already exists basing on username"""
         return username in self.users

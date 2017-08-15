@@ -36,6 +36,12 @@ class TestPlanner(unittest.TestCase):
         online_after = len(Planner.loged_in)
         self.assertEqual(online_after, online_before + 1)
 
+    def test_logout_user_success(self):
+        self.plan.login_user('jane', '123')
+        self.assertIn('jane', Planner.loged_in)
+        self.plan.logout_user('jane')
+        self.assertNotIn('jane', Planner.loged_in)
+
     def test_update_user_success(self):
         """Test a user is successfully updated"""
         self.plan.update_user('jane', 'Jennifer', 'Basemera', '123', 'jane@outlook.com')
